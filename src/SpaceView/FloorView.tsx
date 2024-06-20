@@ -12,7 +12,7 @@ import { FC, useEffect } from 'react';
 import { loadSmplrJs, Smplr } from '@smplrspace/smplr-loader';
 import { Space } from '@smplrspace/smplr-loader/dist/generated/smplr';
 import { Asset_ID, Location, } from './iot-data'
-import { Assets } from './webserv_data'
+
 import { } from "uxp/components";
 
 
@@ -36,6 +36,7 @@ export const IOT: React.FunctionComponent<IWidgetProps> = (props) => {
     const [modalId, setModalId] = React.useState(null)
     const [onOpen, setOnOpen] = React.useState(null)
     const [location, setLocation] = React.useState(null)
+    const [assets, setAssets] = React.useState(null)
 
 
     // handle 2d/3d modes
@@ -116,6 +117,17 @@ export const IOT: React.FunctionComponent<IWidgetProps> = (props) => {
     }
         , []);
 
+        React.useEffect (() => {
+            console.log('Healthcare_mappingWidget mounted');
+            props.uxpContext.executeAction('TestChainy', 'GetDataAssetMapping', {}).then((data) => {
+                console.log(data);
+                debugger;
+                setAssets(JSON.parse(data));
+            });
+            
+        }
+            , []);
+
         
 
         
@@ -156,18 +168,18 @@ export const IOT: React.FunctionComponent<IWidgetProps> = (props) => {
             type: 'point',
             // data: autoElevation(asset_id),
             //data: (asset_id),
-            data: (Assets),
-            tooltip: (d) => `ID : ${d.id} - ${d.status}`,
+            data: (assets),
+            tooltip: (d) => `ID : ${d.AssetID} `,
             color: '#357afc',
             diameter: 0.4,
             // onClick: d => showAlert(` is too loud!`)
             onClick: d => {
-                setModalId(d.id)
-                setModelItem({
-                    id: d.id, type: 'point', assetType: d.assetType, status: d.status,
-                    tagNo: d.tagNo, name: d.name, condition: d.condition, dt: d.dt, Battery: d.Battery, title: d.title, locationBlock: d.locationBlock, locationFloor: d.locationFloor,
-                    locationBuilding: d.locationBuilding
-                })
+                // setModalId(d.id)
+                // setModelItem({
+                //     id: d.id, type: 'point', assetType: d.assetType, status: d.status,
+                //     tagNo: d.tagNo, name: d.name, condition: d.condition, dt: d.dt, Battery: d.Battery, title: d.title, locationBlock: d.locationBlock, locationFloor: d.locationFloor,
+                //     locationBuilding: d.locationBuilding
+                // })
 
             }
 
