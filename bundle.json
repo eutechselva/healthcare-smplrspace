@@ -1,0 +1,22 @@
+{
+    "id": "032812a8-4994-4d22-a5d6-b81b4e92d917",
+    "author": "",
+    "widgets": [
+        {
+            "id": "Mapping",
+            "name": "Mapping",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[]
+        }
+    ],
+    "sidebarLinks": [
+        
+    ],
+    "uis": [
+       
+    ],
+    "menuItems": [
+        
+    ]
+}

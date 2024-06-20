@@ -1,0 +1,37 @@
+{
+    "id": "66f21f8b-f67a-4ade-e8e7-27c928ebca9e",
+    "author": "",
+    "widgets": [
+        {
+            "id": "Mapping",
+            "name": "Mapping",
+            "description": "A sample widget",
+            "icon": "",
+            "tags":[]
+        }
+    ],
+    "sidebarLinks": [
+        {
+            "id": "MappingLink",
+            "label": "",
+            "description": "",
+            "target": "",
+            "icon": "",
+            "roles":[]
+        }
+    ],
+    "uis": [
+        {
+            "id": "MappingLink",
+            "label":"",
+            "description": "",
+            "roles": []
+        }
+    ],
+    "menuItems": [
+        {
+            "id": "MappingLink",
+            "title": "Mapping"
+        }
+    ]
+}
